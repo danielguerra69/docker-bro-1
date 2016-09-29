@@ -9,5 +9,6 @@ RUN echo "===> Adding compile runtime..." && \
         python-dev libpcap-dev geoip-dev fts fts-dev \
         clang binutils g++ linux-headers
 
-VOLUME ["/source"]
+ADD source /source
+VOLUME ["/final"]
 CMD ["/source/build-bro.sh"]

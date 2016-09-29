@@ -4,16 +4,12 @@ SOURCE=/source
 PREFIX=/usr/local
 
 BUILD_DIR=$SOURCE/build
-FINAL_DIR=$SOURCE/final
-
-rm -rf $FINAL_DIR $BUILD_DIR
-mkdir -p $FINAL_DIR $BUILD_DIR
+FINAL_DIR=/final
 
 BRO_DIR=$BUILD_DIR/bro
 AF_PACKET_DIR=$BRO_DIR/aux/plugins/af_packet
 ES_DIR=$BRO_DIR/aux/plugins/elasticsearch
 TCPRS_DIR=$BRO_DIR/aux/plugins/tcprs
-
 
 echo "===> Cloning bro..."
 
