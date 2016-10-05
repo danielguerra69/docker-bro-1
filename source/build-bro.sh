@@ -27,10 +27,6 @@ patch -p1 < $SOURCE/binpac-musl.patch
 cd $BRO_DIR/aux/plugins/elasticsearch/src/
 patch ElasticSearch.cc  $SOURCE/ElasticSearch.cc.patch
 
-cd $BRO_DIR/src/threading/formatters
-patch JSON.h $SOURCE/JSON.h.patch \
-patch JSON.cc $SOURCE/JSON.cc.patch \
-
 cd $BRO_DIR
 cp $SOURCE/FindFTS.cmake cmake
 

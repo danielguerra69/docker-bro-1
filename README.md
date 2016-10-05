@@ -1,7 +1,8 @@
 # alpine-bro-build
 
 Builds bro from git for alpine linux
-Used for danielguerra/alpine-bro-elasticsearch
+Used for building
+danielguerra/alpine-bro-elasticsearch
 
 ## Instructions
 ```
