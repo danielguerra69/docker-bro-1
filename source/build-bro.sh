@@ -6,10 +6,14 @@ PREFIX=/usr/local
 BUILD_DIR=$SOURCE/build
 FINAL_DIR=/final
 
+rm -rf $BUILD_DIR
+mkdir -p $BUILD_DIR
+
 BRO_DIR=$BUILD_DIR/bro
 AF_PACKET_DIR=$BRO_DIR/aux/plugins/af_packet
 ES_DIR=$BRO_DIR/aux/plugins/elasticsearch
 TCPRS_DIR=$BRO_DIR/aux/plugins/tcprs
+
 
 echo "===> Cloning bro..."
 
@@ -26,6 +30,10 @@ patch -p1 < $SOURCE/binpac-musl.patch
 
 cd $BRO_DIR/aux/plugins/elasticsearch/src/
 patch ElasticSearch.cc  $SOURCE/ElasticSearch.cc.patch
+
+cd $BRO_DIR/src/threading/formatters
+patch JSON.h $SOURCE/JSON.h.patch \
+patch JSON.cc $SOURCE/JSON.cc.patch \
 
 cd $BRO_DIR
 cp $SOURCE/FindFTS.cmake cmake
