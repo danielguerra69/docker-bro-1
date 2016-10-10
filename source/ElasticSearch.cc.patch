@@ -1,8 +1,21 @@
-66c66
-< 	json = new threading::formatter::JSON(this, threading::formatter::JSON::TS_MILLIS);
----
-> 	json = new threading::formatter::JSON(this, threading::formatter::JSON::TS_ISO8601);
-146,148d145
-< 	buffer.AddRaw("\"_timestamp\":", 13);
-< 	buffer.Add((uint64) (network_time * 1000));
-< 	buffer.AddRaw(",", 1);
+--- ElasticSearch.cc3
++++ ElasticSearch.cc
+@@ -63,7 +63,7 @@
+
+        curl_handle = HTTPSetup();
+
+-       json = new threading::formatter::JSON(this, threading::formatter::JSON::TS_MILIS);
++       json = new threading::formatter::JSON(this, threading::formatter::JSON::TS_ISO8601);
+        json->SurroundingBraces(false);
+ }
+
+@@ -143,9 +143,6 @@
+                buffer.AddRaw("\n", 1);
+
+        buffer.AddRaw("{", 1);
+-       buffer.AddRaw("\"_timestamp\":", 13);
+-       buffer.Add((uint64) (network_time * 1000));
+-       buffer.AddRaw(",", 1);
+        json->Describe(&buffer, num_fields, fields, vals);
+
+        buffer.AddRaw("}\n", 2);

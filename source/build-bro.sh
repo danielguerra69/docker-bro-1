@@ -28,7 +28,7 @@ cd $BRO_DIR/aux/binpac
 patch -p1 < $SOURCE/binpac-musl.patch
 
 cd $BRO_DIR/aux/plugins/elasticsearch/src/
-patch ElasticSearch.cc  $SOURCE/ElasticSearch.cc.patch
+patch -p1 ElasticSearch.cc < $SOURCE/ElasticSearch.cc.patch
 
 cd $BRO_DIR
 cp $SOURCE/FindFTS.cmake cmake
